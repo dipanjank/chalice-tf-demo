@@ -104,6 +104,12 @@ jobs:
         with:
           python-version: '3.7'
 
+      - name: Update Pip
+        run: pip install -U pip
+
+      - name: Install Requirements
+        run: pip install -r requirements.txt
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
