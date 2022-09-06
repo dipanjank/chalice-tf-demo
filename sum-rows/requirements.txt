@@ -1,3 +1,4 @@
 # Packages specified here get shipped as dependency with the Lambda function
+chalice
 pandas
 s3fs

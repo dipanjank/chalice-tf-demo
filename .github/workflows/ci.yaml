@@ -108,7 +108,7 @@ jobs:
         run: pip install -U pip
 
       - name: Install Requirements
-        run: pip install -r requirements.txt
+        run: pip install -r ./sum-rows/requirements.txt
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
