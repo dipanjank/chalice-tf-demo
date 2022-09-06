@@ -6,7 +6,7 @@
       "iam_role_arn": "arn:aws:iam::381665779871:role/chalice-demo-lambda_role",
       "manage_iam_role": false,
       "security_group_ids": ["sg-015052ba6f592efa2"],
-      "subnet_ids": ["subnet-0a219a2b31aec9bd6", "subnet-076e42e3d9b2b166a", "subnet-02cc4f8822b16260e"]
+      "subnet_ids": ["subnet-0a219a2b31aec9bd6", "subnet-076e42e3d9b2b166a", "subnet-02cc4f8822b16260e"],
       "tags": {"Name":  "chalice-demo"}
     }
   }
