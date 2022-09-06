@@ -2,6 +2,7 @@ import pandas as pd
 from chalice import Chalice
 
 app = Chalice(app_name='sum-rows')
+app.log.setLevel(level="INFO")
 
 INPUT_BUCKET_NAME = "chalice-demo-input-bucket"
 OUTPUT_BUCKET_NAME = "chalice-demo-input-bucket"
