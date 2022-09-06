@@ -90,3 +90,27 @@ jobs:
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         working-directory: ./setup-infra
         run: terraform apply -auto-approve -input=false
+
+  deploy-chalice-app:
+    name: "Deploy Chalice APP"
+    needs: ["run_terraform"]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.7'
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: ${{env.AWS_DEFAULT_REGION}}
+          aws_access_key_id: ${{env.AWS_ACCESS_KEY_ID}}
+          aws_secret_access_key: ${{env.AWS_SECRET_ACCESS}}
+
+      - name: Deploy Chalice
+        run: chalice deploy --stage dev
+        working-directory: ./sum-rows

@@ -1,0 +1,13 @@
+{
+  "version": "2.0",
+  "app_name": "sum-rows",
+  "stages": {
+    "dev": {
+      "iam_role_arn": "arn:aws:iam::381665779871:role/chalice-demo-lambda_role",
+      "manage_iam_role": false,
+      "security_group_ids": ["sg-015052ba6f592efa2"],
+      "subnet_ids": ["subnet-0e5a902a2605426b4", "subnet-056bf344f0f84da33"],
+      "tags": {"Name":  "chalice-demo"}
+    }
+  }
+}

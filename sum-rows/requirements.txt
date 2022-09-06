@@ -1,0 +1,3 @@
+# Packages specified here get shipped as dependency with the Lambda function
+pandas
+s3fs
