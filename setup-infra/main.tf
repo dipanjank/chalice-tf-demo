@@ -15,15 +15,20 @@ variable "vpc_public_subnets" {
   default = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
 }
 
+variable "vpc_private_subnets" {
+  type    = list(string)
+  default = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+}
+
 module "vpc" {
   source             = "terraform-aws-modules/vpc/aws"
   version            = "3.14.4"
   name               = var.vpc_name
   cidr               = var.vpc_cidr
   azs                = var.vpc_azs
-  private_subnets    = []
+  private_subnets    = var.vpc_private_subnets
   public_subnets     = var.vpc_public_subnets
-  enable_nat_gateway = false
+  enable_nat_gateway = true
   tags = {
     Name = "chalice-demo-vpc"
   }
