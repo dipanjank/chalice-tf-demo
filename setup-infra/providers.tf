@@ -7,6 +7,11 @@ terraform {
       version = "~> 4.0"
     }
   }
+  backend "s3" {
+    bucket = "chalice-tf-state-bucket"
+    key    = "remote-data"
+    region = "eu-west-1"
+  }
 }
 
 provider "aws" {
