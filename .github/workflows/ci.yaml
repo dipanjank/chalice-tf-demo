@@ -114,8 +114,8 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: ${{env.AWS_DEFAULT_REGION}}
-          aws_access_key_id: ${{env.AWS_ACCESS_KEY_ID}}
-          aws_secret_access_key: ${{env.AWS_SECRET_ACCESS}}
+          aws-access-key-id: ${{env.AWS_ACCESS_KEY_ID}}
+          aws-secret-access-key: ${{env.AWS_SECRET_ACCESS}}
 
       - name: Deploy Chalice
         run: chalice deploy --stage dev
