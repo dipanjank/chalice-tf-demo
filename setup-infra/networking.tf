@@ -8,7 +8,7 @@ variable "vpc_cidr" {
 }
 variable "vpc_azs" {
   type    = list(string)
-  default = ["3	eu-west-1a", "eu-west-1b", "eu-west-1c"]
+  default = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
 }
 variable "vpc_public_subnets" {
   type    = list(string)
