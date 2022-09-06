@@ -24,5 +24,8 @@ module "vpc" {
   private_subnets    = []
   public_subnets     = var.vpc_public_subnets
   enable_nat_gateway = false
-  tags               = []
+  tags = {
+    "created" : "terraform",
+    "package" : "chalice",
+  }
 }
