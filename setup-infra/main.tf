@@ -82,7 +82,7 @@ resource "aws_iam_role" "lambda_role" {
         Effect = "Allow"
         Sid    = ""
         Principal = {
-          Service = "ec2.amazonaws.com"
+          Service = "lambda.amazonaws.com"
         }
       },
     ]
@@ -91,7 +91,6 @@ resource "aws_iam_role" "lambda_role" {
 
 resource "aws_iam_policy" "lambda_role_policy" {
   name = "chalice-demo-lambda_role-policy"
-  role = aws_iam_role.lambda_role.id
   policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -99,14 +98,29 @@ resource "aws_iam_policy" "lambda_role_policy" {
         Action = [
           "s3:*",
         ]
-        Effect = "Allow"
-        Resource = jsondecode([
-          aws_s3_bucket.input_bucket.arn,
-          aws_s3_bucket.output_bucket.arn,
-          "${aws_s3_bucket.input_bucket.arn}/*",
-          "${aws_s3_bucket.output_bucket.arn}/*",
-        ])
+        Effect   = "Allow"
+        Resource = "*"
+      },
+      {
+        Effect = "Allow",
+        Action = [
+          "logs:*",
+        ],
+        Resource = "*"
+      },
+      {
+        Effect = "Allow",
+        Action = [
+          "ec2:*",
+        ],
+        Resource = "*"
       },
     ]
   })
+}
+
+
+resource "aws_iam_role_policy_attachment" "test-attach" {
+  role       = aws_iam_role.lambda_role.name
+  policy_arn = aws_iam_policy.lambda_role_policy.arn
 }
