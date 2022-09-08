@@ -126,7 +126,7 @@ resource "aws_iam_policy" "lambda_role_policy" {
           "sqs:*",
         ],
         Resource = "*"
-      },
+      }
     ]
   })
 }
