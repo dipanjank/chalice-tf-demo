@@ -129,3 +129,7 @@ resource "aws_iam_role_policy_attachment" "attach-lambda-role-to-policy" {
   role       = aws_iam_role.lambda_role.name
   policy_arn = aws_iam_policy.lambda_role_policy.arn
 }
+
+resource "aws_sqs_queue" "chalice_demo_queue" {
+  name                      = "sum-rows-queue"
+}
