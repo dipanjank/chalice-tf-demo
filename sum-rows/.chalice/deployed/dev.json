@@ -1,0 +1,30 @@
+{
+  "resources": [
+    {
+      "name": "sum_rows_input",
+      "resource_type": "lambda_function",
+      "lambda_arn": "arn:aws:lambda:eu-west-1:381665779871:function:sum-rows-dev-sum_rows_input"
+    },
+    {
+      "name": "sum_rows_input-s3event",
+      "resource_type": "s3_event",
+      "bucket": "chalice-demo-input-bucket",
+      "lambda_arn": "arn:aws:lambda:eu-west-1:381665779871:function:sum-rows-dev-sum_rows_input"
+    },
+    {
+      "name": "handle_row_sum",
+      "resource_type": "lambda_function",
+      "lambda_arn": "arn:aws:lambda:eu-west-1:381665779871:function:sum-rows-dev-handle_row_sum"
+    },
+    {
+      "name": "handle_row_sum-sqs-event-source",
+      "resource_type": "sqs_event",
+      "queue_arn": "arn:aws:sqs:eu-west-1:381665779871:sum-rows-queue",
+      "event_uuid": "ddff0de0-5933-461d-9be3-d014d38bdcf6",
+      "queue": "sum-rows-queue",
+      "lambda_arn": "arn:aws:lambda:eu-west-1:381665779871:function:sum-rows-dev-handle_row_sum"
+    }
+  ],
+  "schema_version": "2.0",
+  "backend": "api"
+}
