@@ -121,6 +121,9 @@ jobs:
         run: chalice deploy --stage dev
         working-directory: ./sum-rows
 
+      - name: Show Stuff
+        run: ls -lR ./sum-rows/.chalice/
+
       # We need to auto-add the sum-rows/.chalice/deployed/* back into the source control
       # See https://github.com/aws/chalice/issues/915
       - name: AutoCommit Deployed Resources List
