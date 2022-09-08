@@ -16,3 +16,7 @@ def move_file(s3_client, source_bucket: str , target_bucket: str, key: str):
         Bucket=target_bucket,
         Key=key,
     )
+    s3_client.delete_object(
+        Bucket=source_bucket,
+        Key=key,
+    )
