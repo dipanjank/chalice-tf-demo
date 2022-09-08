@@ -10,7 +10,7 @@
       "tags": {"Name":  "chalice-demo"},
       "environment_variables": {
         "INPUT_BUCKET_NAME": "chalice-demo-input-bucket",
-        "OUTPUT_BUCKET_NAME": "chalice-demo-input-bucket",
+        "OUTPUT_BUCKET_NAME": "chalice-demo-output-bucket",
         "SQS_QUEUE_NAME": "sum-rows-queue"
       }
     }
