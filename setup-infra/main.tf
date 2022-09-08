@@ -131,5 +131,5 @@ resource "aws_iam_role_policy_attachment" "attach-lambda-role-to-policy" {
 }
 
 resource "aws_sqs_queue" "chalice_demo_queue" {
-  name                      = "sum-rows-queue"
+  name = "sum-rows-queue"
 }
