@@ -120,3 +120,15 @@ jobs:
       - name: Deploy Chalice
         run: chalice deploy --stage dev
         working-directory: ./sum-rows
+
+      # We need to auto-add the sum-rows/.chalice/deployed/* back into the source control
+      # See https://github.com/aws/chalice/issues/915
+      - name: AutoCommit Deployed Resources List
+      - uses: stefanzweifel/git-auto-commit-action@v2.3.0
+        with:
+          commit_message: Apply automatic changes
+          branch: ${{ github.head_ref }}
+          commit_options: '--no-verify --signoff'
+          file_pattern: ./sum-rows/.chalice/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
